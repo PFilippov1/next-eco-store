@@ -1,0 +1,14 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model comments {
+  id      Int     @id @default(autoincrement()) 
+  comment String?
+}

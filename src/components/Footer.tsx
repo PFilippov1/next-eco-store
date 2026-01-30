@@ -1,5 +1,7 @@
+'use client';
 import Link from 'next/link';
 import { Facebook, Instagram, Twitter, Mail } from 'lucide-react';
+import { Tooltip } from 'react-tooltip';
 
 export default function Footer() {
   return (
@@ -41,26 +43,32 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Customer Service</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/faq" className="text-gray-300 hover:text-white transition">
+                <Link
+                  data-tooltip-id="global-tooltip"
+                  href="/faq"
+                  className="text-gray-300 hover:text-white transition"
+                >
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/shipping" className="text-gray-300 hover:text-white transition">
+                {/* <Tooltip id="tooltip1" content="This feature is currently unavailable"/> */}
+                <Link data-tooltip-id="global-tooltip" href="/shipping" className="text-gray-300 hover:text-white transition">
                   Shipping Policy
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="text-gray-300 hover:text-white transition">
+                <Link data-tooltip-id="global-tooltip" href="/returns" className="text-gray-300 hover:text-white transition">
                   Returns & Refunds
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-white transition">
+                <Link data-tooltip-id="global-tooltip" href="/privacy" className="text-gray-300 hover:text-white transition">
                   Privacy Policy
                 </Link>
               </li>
             </ul>
+            
           </div>
 
           {/* Contact & Social */}
@@ -87,7 +95,7 @@ export default function Footer() {
                 placeholder="Your email"
                 className="flex-1 px-4 py-2 text-gray-900 rounded-l"
               />
-              <button className="bg-green-600 px-4 py-2 rounded-r hover:bg-green-700 transition">
+              <button data-tooltip-id="global-tooltip" className="bg-green-600 px-4 py-2 rounded-r hover:bg-green-700 transition">
                 Subscribe
               </button>
             </div>
@@ -99,6 +107,7 @@ export default function Footer() {
           <p>&copy; {new Date().getFullYear()} EcoStore. All rights reserved.</p>
         </div>
       </div>
+      <Tooltip id="global-tooltip" content="This feature is currently unavailable" />
     </footer>
   );
 }
