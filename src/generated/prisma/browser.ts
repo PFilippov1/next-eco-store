@@ -18,7 +18,7 @@ export { Prisma }
 export * as $Enums from './enums'
 export * from './enums';
 /**
- * Model comments
- * The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+ * Model User
+ * 
  */
-export type comments = Prisma.commentsModel
+export type User = Prisma.UserModel
