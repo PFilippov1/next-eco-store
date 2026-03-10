@@ -5,7 +5,7 @@ import { signToken } from '@/lib/auth/jwt';
 
 export async function POST(req: Request) {
   try {
-    const { email, password } = await req.json();
+    const { email, password, name } = await req.json();
 
     if (!email || !password) {
       return NextResponse.json(
@@ -29,6 +29,7 @@ export async function POST(req: Request) {
 
     const user = await prisma.user.create({
       data: {
+        name,
         email,
         password: hashedPassword,
       },

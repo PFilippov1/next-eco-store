@@ -11,7 +11,7 @@ export default async function Header() {
   if (session) {
     user = await prisma.user.findUnique({
       where: { id: session.userId },
-      select: { email: true },
+      select: { email: true, name: true },
     });
   }
 
@@ -56,7 +56,7 @@ export default async function Header() {
                 <div className="flex flex-col items-center gap-1">
                   <span className="text-xs text-gray-400">Hi,</span>
                   <span className="text-sm font-medium text-gray-700 leading-tight max-w-25 truncate">
-                    {user.email}
+                    {user.name || user.email}
                   </span>
                 </div>
                 <LogoutButton />
